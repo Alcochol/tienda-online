@@ -8,7 +8,7 @@ function Productos() {
   const { agregarAlCarrito } = useCarrito();
 
   useEffect(() => {
-    fetch("http://localhost:9191/tienda-api/api/productos.php")
+    fetch("http://localhost:5173/tienda-api/api/productos.php")
       .then((response) => response.json())
       .then((data) => {
         setProductos(data);
