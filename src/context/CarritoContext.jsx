@@ -40,7 +40,10 @@ export function CarritoProvider({ children }) {
       value={{
         carrito,
         agregarAlCarrito,
+        cambiarCantidad,
+        eliminarDelCarrito,
         cantidadTotal,
+        totalCompra,
       }}
     >
       {children}
