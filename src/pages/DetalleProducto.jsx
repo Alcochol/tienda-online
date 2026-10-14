@@ -107,11 +107,19 @@ function DetalleProducto() {
           <button
             className="btn btn-primary btn-lg"
             disabled={Number(producto.stock) <= 0}
-            onClick={() => agregarAlCarrito(producto)}
+            onClick={() => {
+              const resultado = agregarAlCarrito(producto);
+              setMensajeCarrito(resultado.mensaje);
+            }}
           >
             <i className="bi bi-cart"></i>{" "}
             {Number(producto.stock) > 0 ? "Agregar al carrito" : "Agotado"}
           </button>
+          {mensajeCarrito && (
+            <div className="alert alert-info mt-3" role="status">
+              {mensajeCarrito}
+            </div>
+          )}
         </div>
       </div>
     </div>
