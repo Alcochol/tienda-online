@@ -96,14 +96,9 @@ function Carrito() {
           Seguir comprando
         </Link>
 
-        <button
-          className="btn btn-success"
-          onClick={() =>
-            alert("En la siguiente etapa construiremos el proceso de compra.")
-          }
-        >
+        <Link to="/checkout" className="btn btn-success">
           Continuar compra
-        </button>
+        </Link>
       </div>
     </div>
   );

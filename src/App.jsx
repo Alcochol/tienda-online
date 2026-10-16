@@ -7,6 +7,7 @@ import Carrito from "./pages/Carrito";
 import Login from "./pages/Login";
 import Registro from "./pages/Registro";
 import DetalleProducto from "./pages/DetalleProducto";
+import Checkout from "./pages/Checkout";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/carrito" element={<Carrito />} />
         <Route path="/login" element={<Login />} />
         <Route path="/registro" element={<Registro />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </>
   );

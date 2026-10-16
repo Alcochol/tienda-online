@@ -64,6 +64,10 @@ export function CarritoProvider({ children }) {
     setCarrito((actual) => actual.filter((item) => item.id !== id));
   };
 
+  const vaciarCarrito = () => {
+    setCarrito([]);
+  };
+
   const cantidadTotal = carrito.reduce(
     (total, item) => total + item.cantidad,
     0,
@@ -81,6 +85,7 @@ export function CarritoProvider({ children }) {
         agregarAlCarrito,
         cambiarCantidad,
         eliminarDelCarrito,
+        vaciarCarrito,
         cantidadTotal,
         totalCompra,
       }}
