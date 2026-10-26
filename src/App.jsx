@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import Registro from "./pages/Registro";
 import DetalleProducto from "./pages/DetalleProducto";
 import Checkout from "./pages/Checkout";
+import MisPedidos from "./pages/MisPedidos";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/registro" element={<Registro />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/mis-pedidos" element={<MisPedidos />} />
       </Routes>
     </>
   );
