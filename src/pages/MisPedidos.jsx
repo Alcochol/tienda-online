@@ -13,7 +13,11 @@ function MisPedidos() {
   useEffect(() => {
     async function cargarPedidos() {
       try {
-        const respuesta = await fetch(`${API_URL}/pedidos.php`);
+        const respuesta = await fetch(`${API_URL}/pedidos.php`, {
+          method: "GET",
+          credentials: "include",
+        });
+
         const data = await respuesta.json();
 
         if (!respuesta.ok || !data.ok) {
@@ -40,6 +44,10 @@ function MisPedidos() {
     try {
       const respuesta = await fetch(
         `${API_URL}/detalle_pedido.php?id=${encodeURIComponent(id)}`,
+        {
+          method: "GET",
+          credentials: "include",
+        },
       );
 
       const data = await respuesta.json();
