@@ -25,9 +25,11 @@ function Checkout() {
         "http://localhost:9191/tienda-api/api/crear_pedido.php",
         {
           method: "POST",
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
           },
+
           body: JSON.stringify({
             nombre,
             email,
