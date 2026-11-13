@@ -13,32 +13,40 @@ import MisPedidos from "./pages/MisPedidos";
 
 import RutaProtegida from "./components/RutaProtegida";
 
-import { Routes, Route } from "react-router-dom";
+import AdminLayout from "./admin/layouts/AdminLayout";
+import Dashboard from "./admin/pages/Dashboard";
+
+import { Routes, Route, useLocation } from "react-router-dom";
 
 function App() {
+  const location = useLocation();
+
+  const esAdmin = location.pathname.startsWith("/admin");
+
   return (
     <>
-      <Navbar />
+      {!esAdmin && <Navbar />}
 
       <Routes>
         {/* Páginas públicas */}
         <Route path="/" element={<Home />} />
-
         <Route path="/productos" element={<Productos />} />
-
         <Route path="/productos/:id" element={<DetalleProducto />} />
-
         <Route path="/carrito" element={<Carrito />} />
-
         <Route path="/login" element={<Login />} />
-
         <Route path="/registro" element={<Registro />} />
 
-        {/* Páginas que requieren iniciar sesión */}
+        {/* Páginas de clientes autenticados */}
         <Route element={<RutaProtegida />}>
           <Route path="/checkout" element={<Checkout />} />
-
           <Route path="/mis-pedidos" element={<MisPedidos />} />
+        </Route>
+
+        {/* Panel exclusivo del administrador */}
+        <Route element={<RutaProtegida rolesPermitidos={["administrador"]} />}>
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<Dashboard />} />
+          </Route>
         </Route>
       </Routes>
     </>
